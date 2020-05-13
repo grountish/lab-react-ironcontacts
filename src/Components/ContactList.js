@@ -19,9 +19,14 @@ class ContactList extends Component {
 
  addRandom = () =>{
      const randomContact = contactsDB[Math.floor(Math.random() * contactsDB.length)]
+     if(this.state.contacts.indexOf(randomContact) === -1){
      const contactsToUpdate = this.state.contacts
      contactsToUpdate.push(randomContact)
      this.setState({contacts: contactsToUpdate})
+    }
+    else{
+      this.addRandom()
+    }
  }
 
  sortByPop =()=>{
